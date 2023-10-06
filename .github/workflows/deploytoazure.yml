@@ -38,6 +38,8 @@ jobs:
         with:
           # Provide the scope of the deployment. Valid values are: 'resourcegroup', 'managementgroup', 'subscription'
           scope: resourcegroup
+          # Provide the name of a resource group, only required for resource Group deployments.
+          resourceGroupName: GitHubExempleRG
           # Specify the path or URL to the Azure Resource Manager template.
           template: main.bicep
          
