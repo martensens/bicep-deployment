@@ -33,6 +33,14 @@ jobs:
           # Azure PS version to be used to execute the script, example: 1.8.0, 2.8.0, 3.4.0. To use the latest version, specify "latest".
           azPSVersion: latest
 
-
+      - name: Deploy Azure Resource Manager (ARM) Template
+        uses: Azure/arm-deploy@v1.0.9
+        with:
+          # Provide the scope of the deployment. Valid values are: 'resourcegroup', 'managementgroup', 'subscription'
+          scope: resourcegroup
+          # Provide the name of a resource group, only required for resource Group deployments.
+          resourceGroupName: GitHubExampleRG
+          # Specify the path or URL to the Azure Resource Manager template.
+          template: main.bicep
          
 
