@@ -1,9 +1,9 @@
 param loc string = resourceGroup().location
 param dbName string = 'mstsqlServer'
 
-resource mstsqlServer1 'Microsoft.Sql/servers@2015-05-01-preview' = {
+resource mstsqlServer 'Microsoft.Sql/servers@2015-05-01-preview' = {
   
-  name: 'mstsqlServer1'
+  name: dbName
   location: loc
   tags: {
     displayName: dbName
@@ -14,8 +14,8 @@ resource mstsqlServer1 'Microsoft.Sql/servers@2015-05-01-preview' = {
   }
 }
 
-resource mstsqlServer1_AllowAllWindowsAzureIps 'Microsoft.Sql/servers/firewallRules@2015-05-01-preview' = {
-  parent: mstsqlServer1
+resource mstsqlServer_AllowAllWindowsAzureIps 'Microsoft.Sql/servers/firewallRules@2015-05-01-preview' = {
+  parent: mstsqlServer
   name: 'AllowAllWindowsAzureIps'
   properties: {
     startIpAddress: '0.0.0.0'
