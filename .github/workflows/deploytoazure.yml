@@ -11,7 +11,7 @@ on:
   workflow_dispatch: 
 
 env:
-  resourceGroupName: GitHubActionRG
+  resourceGroupName: armdemo
 
 jobs:
   deploytostaging:
