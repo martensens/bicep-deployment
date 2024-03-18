@@ -6,7 +6,7 @@ name: DeployToAzure
 on:
   push:
     branches: 
-    - db
+    - master
 
   workflow_dispatch: 
 
