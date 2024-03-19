@@ -28,15 +28,7 @@ jobs:
           # Set this value to true to enable Azure PowerShell Login in addition to Az CLI login
           enable-AzPSSession: true         
 
-      - name: Azure PowerShell Action
-        uses: Azure/powershell@v1.2.0
-        with:
-          # Specify the Az PowerShell script here.
-          inlineScript: New-AzResourceGroup -Name ${{ env.resourceGroupName}} -location EastUS -Force
-          # Azure PS version to be used to execute the script, example: 1.8.0, 2.8.0, 3.4.0. To use the latest version, specify "latest".
-          azPSVersion: latest
-
-      - name: Deploy Azure SQL Server with ARM Template
+      - name: Deploy Azure SQL Server and Databse with ARM Template
         uses: Azure/arm-deploy@v1.0.9
         with:
           # Provide the scope of the deployment. Valid values are: 'resourcegroup', 'managementgroup', 'subscription'
@@ -46,3 +38,10 @@ jobs:
           # Specify the path or URL to the Azure Resource Manager template.
           template: db2.bicep    
 
+      - name: Powershell Aktionen
+        uses: Azure/powershell@v1.2.0
+        with:
+          # Specify the Az PowerShell script here.
+          inlineScript: Install-Module -Name Pester -RequiredVersion 5.3.1
+          # Azure PS version to be used to execute the script, example: 1.8.0, 2.8.0, 3.4.0. To use the latest version, specify "latest".
+          azPSVersion: latest
