@@ -15,7 +15,7 @@ resource mstisqlserver02 'Microsoft.Sql/servers@2015-05-01-preview' = {
 }
 
 resource mstisqlserver02_AllowAllWindowsAzureIps 'Microsoft.Sql/servers/firewallRules@2015-05-01-preview' = {
-  parent: mstisqlServer1
+  parent: mstisqlserver02
   name: 'AllowAllWindowsAzureIps'
   properties: {
     startIpAddress: '0.0.0.0'
