@@ -1,20 +1,20 @@
 param loc string = resourceGroup().location
-param dbName string = 'mstsqlServer'
+param dbName string = 'mstisqldatabase02'
 
-resource mstisqlServer1 'Microsoft.Sql/servers@2015-05-01-preview' = {
+resource mstisqlserver02 'Microsoft.Sql/servers@2015-05-01-preview' = {
   
-  name: 'mstisqlServer1'
+  name: 'mstisqlserver02'
   location: loc
   tags: {
     displayName: dbName
   }
   properties: {
     administratorLogin: 'mstiller'
-    administratorLoginPassword: 'P@$$w0rd'
+    administratorLoginPassword: 'Habenichts_01'
   }
 }
 
-resource mstisqlServer1_AllowAllWindowsAzureIps 'Microsoft.Sql/servers/firewallRules@2015-05-01-preview' = {
+resource mstisqlserver02_AllowAllWindowsAzureIps 'Microsoft.Sql/servers/firewallRules@2015-05-01-preview' = {
   parent: mstisqlServer1
   name: 'AllowAllWindowsAzureIps'
   properties: {
