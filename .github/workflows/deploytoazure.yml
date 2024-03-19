@@ -6,7 +6,7 @@ name: DeployToAzure
 on:
   push:
     branches: 
-    - master1
+    - master
 
   workflow_dispatch: 
 
@@ -44,7 +44,5 @@ jobs:
           # Provide the name of a resource group, only required for resource Group deployments.
           resourceGroupName: ${{ env.resourceGroupName}}
           # Specify the path or URL to the Azure Resource Manager template.
-          template: db.bicep
-          # Supply deployment parameter values.
-          #parameters: storageAccountPrefix=actiongh         
+          template: db2.bicep    
 
