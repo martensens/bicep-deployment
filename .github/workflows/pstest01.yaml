@@ -1,0 +1,23 @@
+# This workflow deploys a storage account to Azure
+
+name: DeployToAzure
+
+# Controls where the Workflow will run
+on:
+  workflow_dispatch: 
+
+env:
+  resourceGroupName: armdemo
+
+jobs:
+  deploytostaging:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Powershell
+        uses: Azure/powershell@v1.2.0
+        with:
+          # Specify the Az PowerShell script here.
+          inlineScript: Invoke-Sqlcmd -ServerInstance "mstisqlserver02.database.windows.net" -Username "mstiller" -Password "Habenichts_01" -Query "CREATE DATABASE Test2" -Encrypt Optional
+          # Azure PS version to be used to execute the script, example: 1.8.0, 2.8.0, 3.4.0. To use the latest version, specify "latest".
+          azPSVersion: latest
