@@ -4,9 +4,9 @@ name: DeployToAzure
 
 # Controls where the Workflow will run
 on:
-  push:
-    branches: 
-    - master
+#  push:
+#    branches: 
+#    - master
 
   workflow_dispatch: 
 
